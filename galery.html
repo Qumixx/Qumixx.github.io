@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simba</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ruge+Boogie&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url("https://img.freepik.com/premium-vector/dog-paw-seamless-pattern-beige-animal-repeat-doggie-pet-products_562720-1063.jpg?w=360");
+        background-color: wheat;
+        margin: 0;
+        padding: 0;
+      }
+
+      #title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: clamp(40px, 10vw, 90px);
+        color: #995304;
+        background-color: rgb(247, 185, 124);
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .pacifico-regular {
+        font-family: "Pacifico", cursive;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .ramka {
+        position: relative;
+        background-color: #f3d2a5;
+        border: 3px solid #f2cd9c;
+        border-radius: 15px;
+        margin: 10px auto;
+        padding: 60px 10px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+      }
+
+      .ramka-zdj {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px auto;
+        max-width: 1200px;
+      }
+
+      .ramka-zdj img {
+        width: clamp(120px, 25vw, 230px);
+        height: clamp(120px, 25vw, 230px);
+        border: 2px solid #631e02f0;
+        object-fit: cover;
+        display: block;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      .ramka-zdj img:hover {
+        transform: scale(1.4);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .video {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 20px auto;
+      }
+
+      .video video {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border: 2px solid #631e02f0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(247, 185, 124);
+        font-size: 18px;
+        border-radius: 20px;
+        color: #995304;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        margin-top: 30px;
+      }
+
+      footer span {
+        margin: 5px;
+      }
+      .topnav {
+        background-color: rgb(247, 185, 124);
+        padding: 10px 10px 10px 10px;
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .topnav a {
+        font-weight: bold;
+        float: left;
+        display: block;
+        color: #995304;
+        justify-content: space-around;
+        text-align: center;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        font-size: clamp(12px, 2.5vw, 20px);
+      }
+
+      .topnav a:hover {
+        background-color: #f3a45c;
+        padding: 10px 10px 10px 10px;
+        border-radius: 15px;
+        color: black;
+      }
+
+      @media (max-width: 768px) {
+        #title {
+          font-size: clamp(36px, 8vw, 70px);
+        }
+
+        .topnav {
+          font-size: clamp(10px, 4vw, 20px);
+          padding: 5px 5px 5px 5px;
+          justify-content: space-evenly;
+          flex-direction: row;
+          text-align: center;
+          gap: 5px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+          gap: 5px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .ramka-zdj img {
+          width: 45vw;
+          height: 45vw;
+        }
+
+        .video video {
+          max-width: 90vw;
+        }
+
+        #navig {
+          font-size: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="topnav"
+      id="myTopnav"
+      style="display: flex; justify-content: space-around"
+    >
+      <a href="home.html" class="active">HOME</a>
+      <a href="galery.html">PHOTO GALLERY</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="miniGame.html">GAME</a>
+    </div>
+
+    <div class="ramka">
+      <div class="ramka-zdj">
+        <img src="IMG_20201108_173640.jpg" alt="simba1" />
+        <img src="IMG_20201109_154113.jpg" alt="simba2" />
+        <img src="IMG_20201123_163724.jpg" alt="simba3" />
+        <img src="IMG_20201216_165420.jpg" alt="simba4" />
+        <img src="IMG_20241027_162851_301.jpg" alt="simba5" />
+        <img src="IMG_20241129_134542_932.jpg" alt="simba6" />
+        <img src="IMG_20250622_015452_583.jpg" alt="simba7" />
+        <img src="IMG_20250624_150341_853.jpg" alt="simba8" />
+        <img src="IMG_20240718_221546_228.jpg" alt="simba9" />
+        <img src="IMG_20231224_114114_444.jpg" alt="simba10" />
+        <img src="IMG_20231203_112045_2.jpg" alt="simba11" />
+        <img src="IMG_20231009_155644_404.jpg" alt="simba12" />
+        <img src="IMG_20220119_122907.jpg" alt="simba13" />
+        <img src="IMG_20220212_112547.jpg" alt="simba14" />
+      </div>
+
+      <div class="video">
+        <video autoplay muted loop>
+          <source src="InShot_20210906_213638066.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <video autoplay muted loop>
+          <source src="1617189370910.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <footer>
+      <span>Author: Alicja Czeleń </span>
+      <span id="clock"></span>
+    </footer>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const clock = document.getElementById("clock");
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

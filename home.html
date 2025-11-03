@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simba</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ruge+Boogie&display=swap&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url("https://img.freepik.com/premium-vector/dog-paw-seamless-pattern-beige-animal-repeat-doggie-pet-products_562720-1063.jpg?w=360");
+        background-color: wheat;
+        margin: 0;
+        padding: 0;
+      }
+
+      .miauButton {
+        background-color: #f7b97c;
+        color: #995304;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-family: "Pacifico", cursive;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        display: block;
+        margin: 20px auto;
+      }
+
+      .miauButton:hover {
+        background-color: #f3a45c;
+      }
+
+      #title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        font-size: clamp(40px, 10vw, 90px);
+        color: #995304;
+        background-color: rgb(247, 185, 124);
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .ramka {
+        position: relative;
+        background-color: #f3d2a5;
+        border: 3px solid #f2cd9c;
+        border-radius: 15px;
+        margin: 10px auto;
+        padding: 80px 10px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+      }
+
+      .okragla-ramka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        background-color: #f3d2a5;
+        border-radius: 20px;
+        padding: 20px;
+        width: fit-content;
+        margin: 20px auto;
+      }
+      .main-photo {
+        width: min(80vw, 400px);
+        height: min(80vw, 400px);
+        border-radius: 50%;
+        border: 2px solid #903903;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .main-photo:hover {
+        transform: scale(1.2);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .photo-text {
+        color: #995304;
+        max-width: 300px;
+        font-family: "Pacifico", cursive;
+        text-align: center;
+      }
+
+      .pacifico-regular {
+        font-family: "Pacifico", cursive;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .paragraf {
+        font-size: 20px;
+        line-height: 1.4;
+        text-align: center;
+        margin: 10px auto;
+        max-width: 90%;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(247, 185, 124);
+        font-size: 18px;
+        border-radius: 20px;
+        color: #995304;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        margin-top: 30px;
+      }
+
+      footer span {
+        margin: 5px;
+      }
+
+      .topnav {
+        background-color: rgb(247, 185, 124);
+        padding: 10px 10px 10px 10px;
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .topnav a {
+        font-weight: bold;
+        float: left;
+        display: block;
+        color: #995304;
+        justify-content: space-around;
+        text-align: center;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        font-size: clamp(12px, 2.5vw, 20px);
+      }
+
+      .topnav a:hover {
+        background-color: #f3a45c;
+        border-radius: 15px;
+        padding: 10px 10px 10px 10px;
+        color: black;
+      }
+
+      @media (max-width: 768px) {
+        .okragla-ramka {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .photo-text {
+          max-width: 90%;
+        }
+
+        .ramka {
+          top: -60px;
+          padding: 60px 10px 10px;
+        }
+
+        #title {
+          font-size: clamp(36px, 8vw, 70px);
+        }
+        .topnav {
+          font-size: clamp(10px, 4vw, 20px);
+          padding: 5px 5px 5px 5px;
+          justify-content: space-evenly;
+          flex-direction: row;
+          text-align: center;
+          gap: 5px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+          gap: 5px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-photo {
+          width: 70vw;
+          height: 70vw;
+        }
+
+        .paragraf {
+          font-size: 18px;
+        }
+
+        #miauButton {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="topnav"
+      id="myTopnav"
+      style="display: flex; justify-content: space-around"
+    >
+      <a href="home.html" class="active">HOME</a>
+      <a href="galery.html">PHOTO GALLERY</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="miniGame.html">GAME</a>
+    </div>
+
+    <br />
+
+    <div id="title" class="pacifico-regular">Simba</div>
+
+    <br />
+    <br />
+
+    <div class="ramka">
+      <div class="okragla-ramka">
+        <img
+          src="IMG_20241005_142557_9082.jpg"
+          alt="Main photo"
+          class="main-photo"
+        />
+
+        <div class="photo-text">
+          <h2>Simba, the Ginger King</h2>
+          <p>
+            Meet Simba — the fluffiest nap champion and professional model.
+            Loves sunbeams, crunchy snacks, and long conversations at 3 AM.
+          </p>
+          <br />
+          <p>
+            Date of birth: 06.11.2020 <br />
+            Birthplace: Warsaw <br />
+            Zodiac sign: Leo
+          </p>
+          <div>
+            <button class="miauButton" id="miauButton">Click me!</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tekst">
+        <h1 class="pacifico-regular" style="color: #844b05">Who am I?</h1>
+        <p class="paragraf">
+          I’m Simba — the majestic orange loaf, professional napper, and
+          full-time provider of fur on everything you own 🐱
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          What's my typical day routine?
+        </h1>
+        <p class="paragraf">
+          Wake up. Stretch dramatically. Yell for breakfast like I haven’t eaten
+          in years. Nap. Supervise human activities. Nap again. Attack invisible
+          ghosts. Nap some more.
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          What's my favourite food?
+        </h1>
+        <p class="paragraf">
+          Anything from your plate. Especially if you said “no.” (And also I
+          loooove eating some salty chips)
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          What's my profession?
+        </h1>
+        <p class="paragraf">
+          I'm a professionalist at killing little birds, mice and some lizards,
+          so my humans won't be hungry
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          What are my hobbies?
+        </h1>
+        <p class="paragraf">
+          Knocking things off tables, staring into the void, and pretending to
+          see something terrifying just to keep my human on edge.
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          How do I stay in such great shape?
+        </h1>
+        <p class="paragraf">
+          I sprint across the house at 3 a.m. for absolutely no reason. It’s
+          called cardio, look it up.
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          What do I think about humans?
+        </h1>
+        <p class="paragraf">
+          Loud, clumsy, but surprisingly warm to sleep on. They’re basically my
+          staff. Some are slow learners, but they mean well. They think they own
+          the house. Adorable.
+        </p>
+
+        <h1 class="pacifico-regular" style="color: #844b05">
+          Last but not least, the message for my fans:
+        </h1>
+        <p class="paragraf">
+          Remember: if I sit on it, it’s mine. If I stare at you long enough,
+          you’ll feed me. And if you drop something, I was helping.
+        </p>
+        <a href="galery.html" style="text-decoration: none">
+          <button class="miauButton" style="text-decoration: none">
+            Go to the gallery
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const button = document.getElementById("miauButton");
+      button.addEventListener("click", () => {
+        const miau = document.createElement("div");
+        miau.textContent = "Meow 😺";
+        miau.style.position = "absolute";
+
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        miau.style.left = `${x}px`;
+        miau.style.top = `${y}px`;
+
+        miau.style.fontSize = "40px";
+        miau.style.color = "#995304";
+        miau.style.fontFamily = '"Pacifico", cursive';
+        miau.style.userSelect = "none";
+        miau.style.transition = "opacity 0.5s";
+        document.body.appendChild(miau);
+
+        setTimeout(() => {
+          miau.style.opacity = "0";
+          setTimeout(() => miau.remove(), 500);
+        }, 3000);
+      });
+    </script>
+
+    <footer>
+      <span>Author: Alicja Czeleń</span>
+      <span id="clock"></span>
+    </footer>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const clock = document.getElementById("clock");
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

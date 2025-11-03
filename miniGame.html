@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simba</title>
+  </head>
+  <body></body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simba</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ruge+Boogie&display=swap&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-image: url("https://img.freepik.com/premium-vector/dog-paw-seamless-pattern-beige-animal-repeat-doggie-pet-products_562720-1063.jpg?w=360");
+        background-color: wheat;
+        margin: 0;
+        padding: 0;
+      }
+
+      .miauButton {
+        background-color: #f7b97c;
+        color: #995304;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-family: "Pacifico", cursive;
+        font-size: 25px;
+        cursor: pointer;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        display: block;
+        margin: 20px auto;
+      }
+
+      .miauButton:hover {
+        background-color: #f3a45c;
+      }
+      .score {
+        background-color: #f3d2a5;
+        color: #995304;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-family: "Pacifico", cursive;
+        font-size: 20px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        display: block;
+        margin: 20px auto;
+      }
+      #title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        font-size: clamp(40px, 10vw, 90px);
+        color: #995304;
+        background-color: rgb(247, 185, 124);
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .ramka {
+        position: relative;
+        background-color: #f3d2a5;
+        border: 3px solid #f2cd9c;
+        border-radius: 15px;
+        margin: 10px auto;
+        padding: 80px 10px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+      }
+
+      .okragla-ramka {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        background-color: #f3d2a5;
+        border-radius: 20px;
+        padding: 20px;
+        width: fit-content;
+        margin: 20px auto;
+      }
+      .main-photo {
+        width: min(80vw, 400px);
+        height: min(80vw, 400px);
+        border-radius: 50%;
+        border: 2px solid #903903;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .main-photo:hover {
+        transform: scale(1.2);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .photo-text {
+        color: #995304;
+        max-width: 300px;
+        font-family: "Pacifico", cursive;
+        text-align: center;
+      }
+
+      .pacifico-regular {
+        font-family: "Pacifico", cursive;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .paragraf {
+        font-size: 20px;
+        line-height: 1.4;
+        text-align: center;
+        margin: 10px auto;
+        max-width: 90%;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(247, 185, 124);
+        font-size: 18px;
+        border-radius: 20px;
+        color: #995304;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        margin-top: 30px;
+      }
+
+      footer span {
+        margin: 5px;
+      }
+
+      .topnav {
+        background-color: rgb(247, 185, 124);
+        padding: 10px 10px 10px 10px;
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .topnav a {
+        font-weight: bold;
+        float: left;
+        display: block;
+        color: #995304;
+        justify-content: space-around;
+        text-align: center;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        font-size: clamp(12px, 2.5vw, 20px);
+      }
+
+      .topnav a:hover {
+        background-color: #f3a45c;
+        border-radius: 15px;
+        padding: 10px 10px 10px 10px;
+        color: black;
+      }
+
+      /*estetyka mini gry*/
+      #score {
+        text-align: center;
+      }
+      #game {
+        width: 50vw; /* 80% szerokości okna */
+        height: 30vw; /* 40% szerokości okna (lub można też dostosować do height jeśli ma być kwadratowy) */
+        margin: auto; /* Wyśrodkowanie */
+        border: 2px solid #995304;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+        align-self: center;
+        background-image: url("https://media.istockphoto.com/id/494768244/vector/seamless-prairie-landscape.jpg?s=612x612&w=0&k=20&c=WVvVAeKfI9rNxDOlNGCH-EGEmYPYJiDN7iaL8dV73Xg=");
+        background-size: contain;
+      }
+      #cat {
+        height: 8vw; /* Wysokość postaci jako 15% szerokości okna */
+        width: 8vw;
+        position: absolute;
+        top: 60%;
+        background-image: url("kot_z_tlem-removebg-preview.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      #obstacle {
+        height: 6vw; /* Wysokość przeszkody jako 10% szerokości okna */
+        width: 6vw;
+        position: absolute;
+        top: 65%;
+        left: 85%;
+        background-image: url("kaktus_z_tlem-removebg-preview.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .play-animation {
+        animation: obstacle 1.7s infinite;
+      }
+      @keyframes obstacle {
+        0% {
+          left: 100%;
+        }
+        100% {
+          left: -20%;
+        }
+      }
+      .jump-animation {
+        animation: jump 0.5s;
+      }
+      @keyframes jump {
+        0% {
+          top: 55%;
+        }
+        50% {
+          top: 25%;
+        }
+        75% {
+          top: 25%;
+        }
+        100% {
+          top: 55%;
+        }
+      }
+      @media (max-width: 768px) {
+        .okragla-ramka {
+          flex-direction: column;
+          text-align: center;
+        }
+        @keyframes jump {
+          0% {
+            top: 55%;
+          }
+          50% {
+            top: 10%;
+          }
+          75% {
+            top: 10%;
+          }
+          100% {
+            top: 55%;
+          }
+        }
+        @keyframes obstacle {
+          0% {
+            left: 100%;
+          }
+          100% {
+            left: -20%;
+          }
+        }
+        #game {
+          height: 60vw;
+          width: 80vw;
+        }
+        #cat {
+          height: 20vw; /* Większa postać na mniejszych ekranach */
+          width: 20vw;
+          top: 55%;
+        }
+
+        #obstacle {
+          height: 15vw; /* Większa przeszkoda na mniejszych ekranach */
+          width: 15vw;
+          top: 60%;
+          left: 85%;
+        }
+        .photo-text {
+          max-width: 90%;
+        }
+
+        .ramka {
+          top: -60px;
+          padding: 60px 10px 10px;
+        }
+
+        #title {
+          font-size: clamp(36px, 8vw, 70px);
+        }
+        .topnav {
+          font-size: clamp(10px, 4vw, 20px);
+          padding: 2px 2px 2px 2px;
+          justify-content: space-evenly;
+          flex-direction: row;
+          text-align: center;
+          gap: 5px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+          gap: 5px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-photo {
+          width: 70vw;
+          height: 70vw;
+        }
+        .topnav {
+          font-size: clamp(10px, 4vw, 15px);
+          padding: 0 0;
+          justify-content: space-evenly;
+          flex-direction: row;
+          text-align: center;
+          gap: 5px;
+        }
+
+        .paragraf {
+          font-size: 18px;
+        }
+
+        #miauButton {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="topnav"
+      id="myTopnav"
+      style="display: flex; justify-content: space-around"
+    >
+      <a href="home.html" class="active">HOME</a>
+      <a href="galery.html">PHOTO GALLERY</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="miniGame.html">GAME</a>
+    </div>
+    <br />
+    <br />
+    <div
+      id="bar"
+      class="score"
+      style="
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 36px;
+      "
+    >
+      Press any key to jump
+    </div>
+    <br />
+    <div id="game">
+      <div id="cat"></div>
+      <div id="obstacle"></div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap">
+      <button id="play" class="miauButton">Play</button>
+      <div class="score" id="score">0</div>
+    </div>
+    <script>
+      const cat = document.getElementById("cat");
+      const obs = document.getElementById("obstacle");
+      const score = document.getElementById("score");
+      const play = document.getElementById("play");
+      const bar = document.getElementById("bar");
+
+      let playing = false;
+
+      function jump() {
+        cat.classList.add("jump-animation");
+        setTimeout(() => {
+          cat.classList.remove("jump-animation");
+        }, 500);
+      }
+      play.addEventListener("click", () => {
+        if (!playing) {
+          playing = true;
+          bar.innerText = "You're doing great!";
+          score.innerText = 0;
+          obs.classList.add("play-animation");
+        }
+      });
+
+      document.addEventListener("click", () => {
+        if (!cat.classList.contains("jump-animation") && score.innerText > 5) {
+          jump();
+        }
+      });
+      document.addEventListener("keypress", () => {
+        if (!cat.classList.contains("jump-animation")) {
+          jump();
+        }
+      });
+      setInterval(() => {
+        if (playing) score.innerText++;
+
+        const catTop = parseInt(getComputedStyle(cat).getPropertyValue("top"));
+        const obsTop = parseInt(getComputedStyle(obs).getPropertyValue("top"));
+        const obsLeft = parseInt(
+          getComputedStyle(obs).getPropertyValue("left")
+        );
+        const catLeft = parseInt(
+          getComputedStyle(cat).getPropertyValue("left")
+        );
+        const catWidth = cat.offsetWidth;
+        const obsWidth = obs.offsetWidth;
+        const catRect = cat.getBoundingClientRect();
+        const obsRect = obs.getBoundingClientRect();
+        console.log(catRect.bottom);
+        console.log("kaktus" + obsRect.top);
+        if (
+          //jesli dol kota jest nizej niz koniec gory kaktusa i jednoczesnie kaktus jest w obrebie szerokosci kota to dead
+          // catRect.right > obsRect.left &&
+          //catRect.left - 20 > obsRect.right &&
+          //catRect.bottom > obsRect.top + 10
+          //catRect.right - 5 > obsRect.left &&
+          //catRect.left + 5 < obsRect.right &&
+          //catRect.bottom - 5 > obsRect.top &&
+          //catRect.top + 5 < obsRect.bottom
+          obsLeft < catLeft + catWidth && // obstacle dotyka prawej strony kota
+          obsLeft + obsWidth - catWidth > catLeft && // obstacle dotyka lewej strony kota
+          catTop > obsTop - 25
+        ) {
+          playing = false;
+          obs.classList.remove("play-animation");
+          bar.innerText = "Game Over";
+        }
+      }, 50);
+    </script>
+
+    <footer>
+      <span>Author: Alicja Czeleń</span>
+      <span id="clock"></span>
+    </footer>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const clock = document.getElementById("clock");
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
